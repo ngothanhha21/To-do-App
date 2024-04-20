@@ -2,7 +2,7 @@ import React from "react";
 import downArrow from "../../img/down-chevron.png";
 import upload from "../../img/video.png";
 
-function Header({ inputText, setInputText, todos, setTodos, setStatus, isShowTodos, setIsShowTodos,}) {
+function Header({ inputText, setInputText, todos, setTodos, setStatus, isShowTodos, setIsShowTodos}) {
 
   const submitTodoHandler = (e) => {
     e.preventDefault();

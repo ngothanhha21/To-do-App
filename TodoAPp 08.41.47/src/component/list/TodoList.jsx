@@ -1,5 +1,5 @@
 import React from "react";
-import TodoItem from "./TodoItem";
+import TodoItem from "../item/TodoItem";
 
 function TodoList({ todos, setTodos, filteredTodos, isShowTodos }) {
   return (
@@ -23,7 +23,3 @@ function TodoList({ todos, setTodos, filteredTodos, isShowTodos }) {
 }
 
 export default TodoList;
-
-
-
-

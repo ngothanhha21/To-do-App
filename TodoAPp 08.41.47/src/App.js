@@ -1,9 +1,10 @@
 // App.js
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import Header from "./component/todolist/Header";
-import TodoList from "./component/todolist/TodoList";
-import Footer from "./component/todolist/Footer";
+import TodoList from "./component/list/TodoList";
+import Footer from "./component/footer/Footer";
+import Header from "./component/header/Header";
+
 
 function App() {
   const [inputText, setInputText] = useState("");
@@ -80,7 +81,7 @@ function App() {
         isShowTodos={isShowTodos} 
       />
 
-      <Footer 
+      <Footer
         status={status} 
         setStatus={setStatus} 
         todos={todos} 
