@@ -1,9 +1,10 @@
-// App.js
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import TodoList from "./component/list/TodoList";
 import Footer from "./component/footer/Footer";
 import Header from "./component/header/Header";
+import { filterTodos } from "../src/utils/Filter";
+import { saveLocalTodos, getLocalTodos } from "../src/utils/Storage";
 
 
 function App() {
@@ -14,49 +15,20 @@ function App() {
   const [isShowTodos, setIsShowTodos] = useState(true);
 
   useEffect(() => {
-    getLocalTodos();
+    setTodos(getLocalTodos());
   }, []);
 
   useEffect(() => {
-    filterHandler();
-    saveLocalTodos();
+    setFilteredTodos(filterTodos(todos, status));
+    saveLocalTodos(todos);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [todos, status]);
 
   useEffect(() => {
-    const storedTodos = JSON.parse(localStorage.getItem("todos"));
-    if (isShowTodos && storedTodos) {
-      setTodos(storedTodos);
+    if (isShowTodos) {
+      setTodos(getLocalTodos());
     }
   }, [isShowTodos]);
-
-  const saveLocalTodos = () => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  };
-
-  const getLocalTodos = () => {
-    if (localStorage.getItem("todos") === null) {
-      localStorage.setItem("todos", JSON.stringify([]));
-    } else {
-      setTodos(JSON.parse(localStorage.getItem("todos")));
-    }
-  };
-
-  const filterHandler = () => {
-    switch (status) {
-      case "completed":
-        setFilteredTodos(todos.filter((todo) => todo.completed === true));
-        break;
-
-      case "uncompleted":
-        setFilteredTodos(todos.filter((todo) => todo.completed === false));
-        break;
-
-      default:
-        setFilteredTodos(todos);
-        break;
-    }
-  };
 
   return (
     <div className="App">
