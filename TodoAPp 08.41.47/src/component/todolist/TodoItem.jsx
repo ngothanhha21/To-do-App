@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import checkBox from "../../img/correct.png";
-import square from "../../img/checkbox (1).png";
+import Checkbox from "./Checkbox";
+import EditText from "./EditText";
+import DeleteButton from "./DeleteButton";
+
 
 function TodoItem({ text, todo, todos, setTodos }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -60,31 +62,18 @@ function TodoItem({ text, todo, todos, setTodos }) {
       onMouseLeave={() => setIsHovered(false)}
       onDoubleClick={() => setIsEditing(true)}
     >
-      <button
-        onClick={completeHandler}
-        className={`complete-btn ${isEditing ? "hidden" : ""}`}
-      >
-        {isCompleted ? (
-          <img src={checkBox} alt="Complete"
-          className="checkbox"
-          />
-        ) : (
-          <img
-            src={square}
-            alt="Complete"
-            className="emptyCheckbox"
-          />
-        )}
-      </button>
+      <Checkbox 
+        isCompleted={isCompleted}
+        isEditing={isEditing}
+        completeHandler={completeHandler}
+      />
 
       {isEditing ? (
-        <input
-          type="text"
-          value={editText}
-          onChange={(e) => setEditText(e.target.value)}
-          onBlur={handleEditSave}
-          onKeyPress={handleKeyPress} 
-          autoFocus
+        <EditText
+          editText={editText}
+          setEditText={setEditText}
+          handleEditSave={handleEditSave}
+          handleKeyPress={handleKeyPress}
         />
       ) : (
         <li className={`todo-item ${todo.completed ? "completed" : ""}`}>
@@ -93,9 +82,7 @@ function TodoItem({ text, todo, todos, setTodos }) {
       )}
 
       {isHovered && !isEditing && (
-        <button onClick={deleteHandler} className="delete-btn">
-          <span>X</span>
-        </button>
+        <DeleteButton deleteHandler={deleteHandler} />
       )}
     </div>
   );
