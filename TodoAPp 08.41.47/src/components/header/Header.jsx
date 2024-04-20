@@ -1,6 +1,6 @@
 import React from "react";
-import downArrow from "../../img/down-chevron.png";
-import upload from "../../img/video.png";
+import downArrow from "../../assets/img/down-chevron.png";
+import upload from "../../assets/img/video.png";
 
 function Header({ inputText, setInputText, todos, setTodos, setStatus, isShowTodos, setIsShowTodos}) {
 
@@ -22,7 +22,6 @@ function Header({ inputText, setInputText, todos, setTodos, setStatus, isShowTod
       submitTodoHandler(e);
     }
   };
-
 
   return (
     <>

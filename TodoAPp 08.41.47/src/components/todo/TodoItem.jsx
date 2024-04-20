@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Checkbox from "./Checkbox";
-import EditText from "./EditText";
-import DeleteButton from "./DeleteButton";
+import Checkbox from "../common/Checkbox";
+import EditText from "../common/EditText";
+import DeleteButton from "../common/DeleteButton";
 
 
 function TodoItem({ text, todo, todos, setTodos }) {

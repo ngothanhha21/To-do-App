@@ -1,9 +1,12 @@
 import "./App.css";
+import "./assets/styles/footer.css"
+import "./assets/styles/header.css"
+import "./assets/styles/todo.css"
 import React, { useState, useEffect } from "react";
-import TodoList from "./component/list/TodoList";
-import Footer from "./component/footer/Footer";
-import Header from "./component/header/Header";
-import { filterTodos } from "../src/utils/Filter";
+import TodoList from "./components/todo/TodoList";
+import Footer from "./components/footer/Footer";
+import Header from "./components/header/Header";
+import { filterTodos } from "./utils/FilterCompleted";
 import { saveLocalTodos, getLocalTodos } from "../src/utils/Storage";
 
 

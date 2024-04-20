@@ -1,0 +1,100 @@
+.complete-btn, .trash-btn {
+    border: none;
+    padding: 1.3rem;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: .8rem;
+    margin-left: 8px;
+  }
+  
+  .checkbox {
+    width: 30px;
+    height: 30px;
+    margin-top: 5px;
+    margin-left: 3px;
+  }
+  
+  .emptyCheckbox {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+
+  .delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  .delete-btn span {
+    color: red;
+  }
+  
+  
+  
+  /* Arrow */
+  .todo-container {
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid #e6e6e6;
+  }
+  
+  .todo-list {
+    width: 100%;
+    list-style: none;
+  }
+  
+  .todo {
+    background: white;
+    font-size: 1rem;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 1s ease;
+    border-block-end: 1px rgb(188, 187, 187) solid;
+    max-height: 100px;
+  }
+  
+  .todo button {
+    outline: none;
+    background: white;
+  }
+  
+  
+  
+  .todo li, .todo input {
+    flex: 1;
+    font-size: 24px;
+  }
+  
+  
+  .todo-item {
+    padding: 0rem 0.5rem;
+  }
+  
+  .fall {
+    transform: translateY(10rem) rotateZ(20deg);
+    opacity: 0;
+  }
+  
+  .completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
+  
+  
+  .editing input{
+      outline: none;
+      padding-left: 75px;
+      border: 2px solid rgb(216, 88, 42);
+      font-size: 24px;
+      background: rgba(0, 0, 0, 0.003);
+      box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
+      font-family: inherit;
+  }
+  

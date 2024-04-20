@@ -1,6 +1,6 @@
 import React from 'react'
-import checkBox from "../../img/correct.png";
-import square from "../../img/checkbox (1).png";
+import checkBox from "../../assets/img/correct.png";
+import square from "../../assets/img/checkbox (1).png";
 
 function Checkbox({ isCompleted, isEditing, completeHandler }) {
   return (

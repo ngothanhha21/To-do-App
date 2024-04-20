@@ -1,4 +1,7 @@
 import React, {useState} from 'react'
+import FilterButton from '../common/FilterButton'
+import ClearCompleteButton from '../common/ClearCompleteButton'
+
 
 function Footer({status, setStatus, todos, setTodos}) {
 
@@ -29,18 +32,25 @@ function Footer({status, setStatus, todos, setTodos}) {
           <p>{number()} items left </p>
 
           <div name="todos" className="filter-todo">
-              <p onClick={() => handleFilterClick('all')} value="all"
-                  className={activeFilter === 'all' ? 'active' : ''}
-              >All</p>
-              <p onClick={() => handleFilterClick('uncompleted')} value="uncompleted"
-                className={activeFilter === 'uncompleted' ? 'active' : ''}
-              >Active</p>
-              <p onClick={() => handleFilterClick('completed')} value="completed"
-                className={activeFilter === 'completed' ? 'active' : ''}
-              >Complete</p>
+            <FilterButton
+              filter="all"
+              activeFilter={activeFilter}
+              handleFilterClick={handleFilterClick}
+            />
+            <FilterButton
+              filter="uncompleted"
+              activeFilter={activeFilter}
+              handleFilterClick={handleFilterClick}
+            />
+            <FilterButton
+              filter="completed"
+              activeFilter={activeFilter}
+              handleFilterClick={handleFilterClick}
+            />
           </div>
 
-          <p onClick={handleClearComplete} className="clear-complete">Clear complete</p>
+          <ClearCompleteButton handleClearComplete={handleClearComplete} />
+
 
       </div>
     )
