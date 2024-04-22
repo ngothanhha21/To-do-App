@@ -6,23 +6,19 @@ import React from "react";
 import TodoList from "./components/todo/TodoList";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
-import { useApp } from "./hooks/useApp";
+import { useInputText } from "./hooks/useInputText";
+import { useListTodos } from "./hooks/useListTodos";
+import { useIsShowListTodos } from "./hooks/useIsShowListTodo";
 
 function App() {
-  const {
-    inputText,
-    setInputText,
-    todos,
-    setTodos,
-    status,
-    setStatus,
-    filteredTodos,
-    isShowTodos,
-    setIsShowTodos,
-    handleClearComplete,
-    number,
-    handleFilterClick,
-  } = useApp();
+  const { inputText, setInputText } = useInputText();
+  const { isShowTodos, setIsShowTodos} = useIsShowListTodos()
+  const { todos, setTodos, 
+          status, setStatus, 
+          filteredTodos, 
+          handleClearComplete, 
+          number,
+          handleFilterClick } = useListTodos()
 
   return (
     <div className="App">

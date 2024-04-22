@@ -2,12 +2,10 @@ import { useState, useEffect } from "react";
 import { filterTodos } from "../utils/FilterCompleted";
 import { saveLocalTodos, getLocalTodos } from "../utils/Storage";
 
-export const useApp = () => {
-    const [inputText, setInputText] = useState("");
+export const useListTodos = () => {
     const [todos, setTodos] = useState([]);
     const [status, setStatus] = useState("All");
     const [filteredTodos, setFilteredTodos] = useState([]);
-    const [isShowTodos, setIsShowTodos] = useState(true);
 
     useEffect(() => {
         setTodos(getLocalTodos());
@@ -17,12 +15,6 @@ export const useApp = () => {
         setFilteredTodos(filterTodos(todos, status));
         saveLocalTodos(todos);
     }, [todos, status]);
-
-    useEffect(() => {
-        if (isShowTodos) {
-            setTodos(getLocalTodos());
-        }
-    }, [isShowTodos]);
 
     const handleClearComplete = () => {
         setTodos(todos.filter((item) => !item.completed));
@@ -44,17 +36,13 @@ export const useApp = () => {
     };
 
     return {
-        inputText,
-        setInputText,
         todos,
         setTodos,
         status,
         setStatus,
         filteredTodos,
-        isShowTodos,
-        setIsShowTodos,
         handleClearComplete,
         number,
         handleFilterClick,
     };
-    };
+};
